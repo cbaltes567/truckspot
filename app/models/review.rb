@@ -1,6 +1,8 @@
 class Review < ApplicationRecord
   # Direct associations
 
+  belongs_to :garage
+
   belongs_to :reviewer,
              :class_name => "User"
 
