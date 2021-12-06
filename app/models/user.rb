@@ -2,7 +2,8 @@ class User < ApplicationRecord
   include JwtToken
   # Direct associations
 
-  has_many   :vehicle_ownerships,
+  has_many   :vehicles,
+             class_name: "VehicleOwnership",
              foreign_key: "owner_id",
              dependent: :destroy
 

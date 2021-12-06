@@ -4,8 +4,8 @@ class ReservationResource < ApplicationResource
   attribute :updated_at, :datetime, writable: false
   attribute :user_id, :integer
   attribute :garage_id, :integer
-  attribute :start_date, :datetime
-  attribute :end_time, :string
+  attribute :start_time, :datetime
+  attribute :end_time, :datetime
 
   # Direct associations
 

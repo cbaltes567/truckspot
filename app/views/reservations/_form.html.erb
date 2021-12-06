@@ -25,21 +25,21 @@
     <% end %>
   </div>
   <div class="form-group">
-    <% start_date_class = "form-control" %>
-    <% start_date_was_invalid = reservation.errors.include?(:start_date) %>
+    <% start_time_class = "form-control" %>
+    <% start_time_was_invalid = reservation.errors.include?(:start_time) %>
 
     <% if was_validated %>
-      <% if start_date_was_invalid %>
-        <% start_date_class << " is-invalid" %>
+      <% if start_time_was_invalid %>
+        <% start_time_class << " is-invalid" %>
       <% else %>
-        <% start_date_class << " is-valid" %>
+        <% start_time_class << " is-valid" %>
       <% end %>
     <% end %>
 
-    <%= f.label :start_date %>
-    <%= f.datetime_select :start_date, class: start_date_class, placeholder: "Enter start date" %>
-    <% if start_date_was_invalid %>
-      <% reservation.errors.full_messages_for(:start_date).each do |message| %>
+    <%= f.label :start_time %>
+    <%= f.datetime_select :start_time, class: start_time_class, placeholder: "Enter start time" %>
+    <% if start_time_was_invalid %>
+      <% reservation.errors.full_messages_for(:start_time).each do |message| %>
         <div class="invalid-feedback d-flex">
           <%= message %>
         </div>
@@ -59,7 +59,7 @@
     <% end %>
 
     <%= f.label :end_time %>
-    <%= f.time_select :end_time, class: end_time_class, placeholder: "Enter end time" %>
+    <%= f.datetime_select :end_time, class: end_time_class, placeholder: "Enter end time" %>
     <% if end_time_was_invalid %>
       <% reservation.errors.full_messages_for(:end_time).each do |message| %>
         <div class="invalid-feedback d-flex">

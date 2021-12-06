@@ -48,6 +48,8 @@ class Garage < ApplicationRecord
 
   validates :cost_per_hour, numericality: { greater_than: 0 }
 
+  validates :garage_name, presence: true
+
   validates :location, presence: true
 
   validates :lowest_height, presence: true

@@ -11,6 +11,6 @@ RSpec.describe Reservation, type: :model do
   end
 
   describe "Validations" do
-    it { should validate_presence_of(:start_date) }
+    it { should validate_presence_of(:start_time) }
   end
 end

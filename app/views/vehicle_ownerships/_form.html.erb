@@ -14,7 +14,7 @@
     <% end %>
 
     <%= f.label :vehicle_id %>
-    <%= f.collection_select :vehicle_id, Vehicle.all, :id, :to_s, {}, class: "form-control" %>
+    <%= f.collection_select :vehicle_id, VehicleType.all, :id, :to_s, {}, class: "form-control" %>
     <% if vehicle_was_invalid %>
       <% vehicle_ownership.errors.full_messages_for(:vehicle).each do |message| %>
         <div class="invalid-feedback d-flex">

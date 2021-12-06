@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
       resources :favorites
 
-      resources :vehicles
+      resources :vehicle_types
 
       resources :reviews
 
@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   root to: "garages#index"
   resources :vehicle_ownerships
   resources :favorites
-  resources :vehicles
+  resources :vehicle_types
   resources :reviews
   resources :reservations
   resources :garages
