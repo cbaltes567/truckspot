@@ -21,6 +21,9 @@ class UserResource < ApplicationResource
 
   # Indirect associations
 
+  many_to_many :garage_reviews,
+               resource: GarageResource
+
   many_to_many :favorite_garages,
                resource: GarageResource
 

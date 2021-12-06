@@ -18,6 +18,9 @@ class GarageResource < ApplicationResource
 
   # Indirect associations
 
+  many_to_many :reviewers,
+               resource: UserResource
+
   many_to_many :users
 
 end
