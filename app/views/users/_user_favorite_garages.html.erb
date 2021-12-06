@@ -1,0 +1,19 @@
+<div class="card">
+  <div class="card-header d-flex align-items-center justify-content-between">
+    Favorite Garages
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <% @user.favorite_garages.each do |garage| %>
+      <li class="list-group-item d-flex align-items-center justify-content-between">
+        <!-- Show link start -->
+        <a href="/garages/<%= garage.id %>">
+          <%= garage %>
+        </a>
+        <!-- Show link end -->
+
+      </li>
+    <% end %>
+
+  </ul>
+</div>
