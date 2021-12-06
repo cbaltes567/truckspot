@@ -1,6 +1,9 @@
 class Garage < ApplicationRecord
   # Direct associations
 
+  has_many   :reservations,
+             :dependent => :destroy
+
   # Indirect associations
 
   # Validations
