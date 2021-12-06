@@ -63,6 +63,6 @@ class Garage < ApplicationRecord
   # Scopes
 
   def to_s
-    lowest_height
+    garage_name
   end
 end
