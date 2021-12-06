@@ -5,6 +5,8 @@ class Garage < ApplicationRecord
 
   # Validations
 
+  validates :parking_spot_width, :presence => true
+
   validates :parking_spot_width, :numericality => { :greater_than => 0 }
 
   # Scopes
