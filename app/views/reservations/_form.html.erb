@@ -42,7 +42,7 @@
 
     <%= f.label :garage_id %>
     <!-- Input for garage_id start -->
-    <%= f.number_field :garage_id, class: garage_class, placeholder: "Enter garage" %>
+    <%= f.collection_select :garage_id, Garage.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for garage_id end -->
     <% if garage_was_invalid %>
       <% reservation.errors.full_messages_for(:garage).each do |message| %>
