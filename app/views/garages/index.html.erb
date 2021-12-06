@@ -38,6 +38,10 @@
       <div class="list-group list-group-flush">
         <%= render collection: @garages, partial: "list_item", as: :garage %>
       </div>
+      <div class="card-footer d-flex justify-content-center">
+        <%= paginate @garages, theme: 'twitter-bootstrap-4' %>
+      </div>
+
     </div>
   </div>
 </div>
