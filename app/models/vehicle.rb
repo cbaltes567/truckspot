@@ -5,6 +5,8 @@ class Vehicle < ApplicationRecord
 
   # Validations
 
+  validates :width, :presence => true
+
   validates :width, :numericality => { :greater_than => 0 }
 
   # Scopes
