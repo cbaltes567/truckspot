@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :reservations
   resources :garages
   devise_for :users
   resources :users
