@@ -3,11 +3,11 @@ class VehiclesController < ApplicationController
 
   def index
     @q = Vehicle.ransack(params[:q])
-    @vehicles = @q.result(distinct: true).includes(:users).page(params[:page]).per(10)
+    @vehicles = @q.result(distinct: true).includes(:vehicle_ownerships).page(params[:page]).per(10)
   end
 
   def show
-    @user = User.new
+    @vehicle_ownership = VehicleOwnership.new
   end
 
   def new

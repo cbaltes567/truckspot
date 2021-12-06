@@ -1,7 +1,7 @@
 class Vehicle < ApplicationRecord
   # Direct associations
 
-  has_many   :users,
+  has_many   :vehicle_ownerships,
              dependent: :destroy
 
   # Indirect associations

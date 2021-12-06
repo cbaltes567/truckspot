@@ -1,38 +1,9 @@
-<%= search_form_for @q, :class => collapse_search_form, :id => "vehicles_filters" do |f| %>
+<%= search_form_for @q, :class => collapse_search_form, :id => "vehicle_ownerships_filters" do |f| %>
   <p class="lead">Narrow results:</p>
 
   <div class="form-group">
-    <%= f.label :make_cont, "Make contains" %>
-    <%= f.text_field :make_cont, :class => "form-control", :placeholder => "Make contains" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :height, "Height" %>
-    <div class="row">
-      <div class='col-md-6 mb-1'>
-        <%= f.text_field :height_gteq, :class => "form-control", :placeholder => "Height greater than or equal to" %>
-      </div>
-      <div class='col-md-6'>
-        <%= f.text_field :height_lteq, :class => "form-control", :placeholder => "Height less than or equal to" %>
-      </div>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :width, "Width" %>
-    <div class="row">
-      <div class='col-md-6 mb-1'>
-        <%= f.text_field :width_gteq, :class => "form-control", :placeholder => "Width greater than or equal to" %>
-      </div>
-      <div class='col-md-6'>
-        <%= f.text_field :width_lteq, :class => "form-control", :placeholder => "Width less than or equal to" %>
-      </div>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :model_cont, "Model contains" %>
-    <%= f.text_field :model_cont, :class => "form-control", :placeholder => "Model contains" %>
+    <%= f.label :license_plate_number_cont, "License plate number contains" %>
+    <%= f.text_field :license_plate_number_cont, :class => "form-control", :placeholder => "License plate number contains" %>
   </div>
 
   <div class="form-group">
@@ -76,14 +47,23 @@
   </script>
 
 
+  <div class="form-group">
+    <%= f.label :owner_email_cont, "Owner email contains" %>
+    <%= f.text_field :owner_email_cont, :class => "form-control", :placeholder => "Owner email contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :vehicle_make_cont, "Vehicle make contains" %>
+    <%= f.text_field :vehicle_make_cont, :class => "form-control", :placeholder => "Vehicle make contains" %>
+  </div>
 
 
   <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
 
-  <a href="/vehicles" class="btn btn-outline-secondary btn-block mb-1">Clear filters</a>
+  <a href="/vehicle_ownerships" class="btn btn-outline-secondary btn-block mb-1">Clear filters</a>
 
 <% end %>
 
-<a class="btn btn-outline-secondary btn-block mb-1" data-toggle="collapse" href="#vehicles_filters">
+<a class="btn btn-outline-secondary btn-block mb-1" data-toggle="collapse" href="#vehicle_ownerships_filters">
   Show filters
 </a>
