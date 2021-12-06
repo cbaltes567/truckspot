@@ -10,6 +10,8 @@ class GarageResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :favorites
+
   has_many   :reviews
 
   has_many   :reservations
