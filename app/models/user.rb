@@ -15,6 +15,10 @@ class User < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :favorite_garages,
+             :through => :favorites,
+             :source => :garage
+
   # Validations
 
   validates :license_plate_number, :presence => true

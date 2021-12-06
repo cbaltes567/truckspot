@@ -12,6 +12,10 @@ class Garage < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :users,
+             :through => :favorites,
+             :source => :user
+
   # Validations
 
   validates :cost_per_hour, :presence => true
