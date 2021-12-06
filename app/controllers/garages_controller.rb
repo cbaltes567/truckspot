@@ -54,6 +54,6 @@ class GaragesController < ApplicationController
 
   def garage_params
     params.require(:garage).permit(:lowest_height, :location, :cost_per_hour,
-                                   :parking_spot_width, :garage_picture)
+                                   :parking_spot_width, :garage_picture, :garage_name)
   end
 end

@@ -7,8 +7,8 @@
     <dl class="mb-1">
       <dt>Vehicle</dt>
       <dd>
-        <% if @vehicle_ownership.vehicle.present? %>
-          <%= link_to vehicle_ownership.vehicle, vehicle_ownership.vehicle %>
+        <% if @vehicle_ownership.vehicle_type.present? %>
+          <%= link_to vehicle_ownership.vehicle_type, vehicle_ownership.vehicle_type %>
         <% end %>
       </dd>
 

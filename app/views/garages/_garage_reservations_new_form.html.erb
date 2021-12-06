@@ -5,14 +5,13 @@
   <%= f.hidden_field :garage_id, value: @garage.id %>
 
   <div class="form-group">
-    <%= f.label :start_date %>
-    <%= f.datetime_select :start_date, class: "form-control" %>
+    <%= f.label :start_time %>
+    <%= f.datetime_select :start_time, class: "form-control" %>
   </div>
 
   <div class="form-group">
     <%= f.label :end_time %>
-
-    <%= f.date_select :end_time, class: "form-control" %>
+    <%= f.datetime_select :end_time, class: "form-control" %>
   </div>
 
   <%= f.submit "Create reservation", class: "btn btn-block btn-outline-secondary" %>

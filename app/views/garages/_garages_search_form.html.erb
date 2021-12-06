@@ -14,6 +14,11 @@
   </div>
 
   <div class="form-group">
+    <%= f.label :garage_name_cont, "Garage name contains" %>
+    <%= f.text_field :garage_name_cont, :class => "form-control", :placeholder => "Garage name contains" %>
+  </div>
+
+  <div class="form-group">
     <%= f.label :parking_spot_width, "Parking spot width" %>
     <div class="row">
       <div class='col-md-6 mb-1'>
