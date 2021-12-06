@@ -5,6 +5,8 @@ class User < ApplicationRecord
 
   # Validations
 
+  validates :license_plate_number, :presence => true
+
   validates :location, :presence => true
 
   # Scopes

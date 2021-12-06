@@ -12,6 +12,8 @@ RSpec.describe User, type: :model do
 
     describe "Validations" do
 
+    it { should validate_presence_of(:license_plate_number) }
+
     it { should validate_presence_of(:location) }
 
     end
