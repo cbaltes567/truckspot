@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "garages#index"
   resources :favorites
   resources :vehicles
   resources :reviews
