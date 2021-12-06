@@ -13,7 +13,7 @@
     <%= f.label :garage_id %>
 
     <!-- Input for garage_id start -->
-    <%= f.text_field :garage_id, class: "form-control" %>
+    <%= f.collection_select :garage_id, Garage.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for garage_id end -->
   </div>
   <!-- Label and input for garage_id end -->
