@@ -42,7 +42,7 @@
 
     <%= f.label :vehicle_id %>
     <!-- Input for vehicle_id start -->
-    <%= f.number_field :vehicle_id, class: vehicle_class, placeholder: "Enter vehicle" %>
+    <%= f.collection_select :vehicle_id, Vehicle.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for vehicle_id end -->
     <% if vehicle_was_invalid %>
       <% user.errors.full_messages_for(:vehicle).each do |message| %>
