@@ -12,6 +12,10 @@ class Garage < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :reviewers,
+             :through => :reviews,
+             :source => :reviewer
+
   has_many   :users,
              :through => :favorites,
              :source => :user

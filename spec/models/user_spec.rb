@@ -16,6 +16,8 @@ RSpec.describe User, type: :model do
 
     describe "InDirect Associations" do
 
+    it { should have_many(:garage_reviews) }
+
     it { should have_many(:favorite_garages) }
 
     end

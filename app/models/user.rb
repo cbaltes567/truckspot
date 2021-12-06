@@ -15,6 +15,10 @@ class User < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :garage_reviews,
+             :through => :reviews,
+             :source => :garage
+
   has_many   :favorite_garages,
              :through => :favorites,
              :source => :garage
