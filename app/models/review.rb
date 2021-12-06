@@ -5,6 +5,8 @@ class Review < ApplicationRecord
 
   # Validations
 
+  validates :rating, :presence => true
+
   validates :rating, :numericality => true
 
   validates :review_body, :presence => true
