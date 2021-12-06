@@ -10,6 +10,8 @@ class GarageResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :reservations
+
   # Indirect associations
 
 end
