@@ -1,10 +1,10 @@
-require 'open-uri'
+require "open-uri"
 class User < ApplicationRecord
   before_validation :geocode_location
 
   def geocode_location
-    if self.location.present?
-      url = "https://maps.googleapis.com/maps/api/geocode/json?key=#{ENV['GMAP_API_KEY']}&address=#{URI.encode(self.location)}"
+    if location.present?
+      url = "https://maps.googleapis.com/maps/api/geocode/json?key=#{ENV['GMAP_API_KEY']}&address=#{URI.encode(location)}"
 
       raw_data = open(url).read
 
@@ -19,37 +19,37 @@ class User < ApplicationRecord
       end
     end
   end
-  
+
   include JwtToken
-# Direct associations
+  # Direct associations
 
   belongs_to :vehicle
 
   has_many   :favorites,
-             :dependent => :destroy
+             dependent: :destroy
 
   has_many   :reviews,
-             :foreign_key => "reviewer_id",
-             :dependent => :destroy
+             foreign_key: "reviewer_id",
+             dependent: :destroy
 
   has_many   :reservations,
-             :dependent => :destroy
+             dependent: :destroy
 
   # Indirect associations
 
   has_many   :garage_reviews,
-             :through => :reviews,
-             :source => :garage
+             through: :reviews,
+             source: :garage
 
   has_many   :favorite_garages,
-             :through => :favorites,
-             :source => :garage
+             through: :favorites,
+             source: :garage
 
   # Validations
 
-  validates :license_plate_number, :presence => true
+  validates :license_plate_number, presence: true
 
-  validates :location, :presence => true
+  validates :location, presence: true
 
   # Scopes
 

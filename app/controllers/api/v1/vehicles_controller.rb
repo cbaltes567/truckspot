@@ -13,7 +13,7 @@ class Api::V1::VehiclesController < Api::V1::GraphitiController
     vehicle = VehicleResource.build(params)
 
     if vehicle.save
-      render jsonapi: vehicle, status: 201
+      render jsonapi: vehicle, status: :created
     else
       render jsonapi_errors: vehicle
     end
@@ -33,7 +33,7 @@ class Api::V1::VehiclesController < Api::V1::GraphitiController
     vehicle = VehicleResource.find(params)
 
     if vehicle.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: vehicle
     end

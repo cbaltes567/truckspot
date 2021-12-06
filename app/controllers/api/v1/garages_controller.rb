@@ -13,7 +13,7 @@ class Api::V1::GaragesController < Api::V1::GraphitiController
     garage = GarageResource.build(params)
 
     if garage.save
-      render jsonapi: garage, status: 201
+      render jsonapi: garage, status: :created
     else
       render jsonapi_errors: garage
     end
@@ -33,7 +33,7 @@ class Api::V1::GaragesController < Api::V1::GraphitiController
     garage = GarageResource.find(params)
 
     if garage.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: garage
     end

@@ -15,5 +15,4 @@ class ReviewResource < ApplicationResource
              resource: UserResource
 
   # Indirect associations
-
 end

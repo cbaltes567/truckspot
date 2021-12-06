@@ -1,10 +1,10 @@
-require 'open-uri'
+require "open-uri"
 class Garage < ApplicationRecord
   before_validation :geocode_location
 
   def geocode_location
-    if self.location.present?
-      url = "https://maps.googleapis.com/maps/api/geocode/json?key=#{ENV['GMAP_API_KEY']}&address=#{URI.encode(self.location)}"
+    if location.present?
+      url = "https://maps.googleapis.com/maps/api/geocode/json?key=#{ENV['GMAP_API_KEY']}&address=#{URI.encode(location)}"
 
       raw_data = open(url).read
 
@@ -24,44 +24,43 @@ class Garage < ApplicationRecord
   # Direct associations
 
   has_many   :favorites,
-             :dependent => :destroy
+             dependent: :destroy
 
   has_many   :reviews,
-             :dependent => :destroy
+             dependent: :destroy
 
   has_many   :reservations,
-             :dependent => :destroy
+             dependent: :destroy
 
   # Indirect associations
 
   has_many   :reviewers,
-             :through => :reviews,
-             :source => :reviewer
+             through: :reviews,
+             source: :reviewer
 
   has_many   :users,
-             :through => :favorites,
-             :source => :user
+             through: :favorites,
+             source: :user
 
   # Validations
 
-  validates :cost_per_hour, :presence => true
+  validates :cost_per_hour, presence: true
 
-  validates :cost_per_hour, :numericality => { :greater_than => 0 }
+  validates :cost_per_hour, numericality: { greater_than: 0 }
 
-  validates :location, :presence => true
+  validates :location, presence: true
 
-  validates :lowest_height, :presence => true
+  validates :lowest_height, presence: true
 
-  validates :lowest_height, :numericality => { :greater_than => 0 }
+  validates :lowest_height, numericality: { greater_than: 0 }
 
-  validates :parking_spot_width, :presence => true
+  validates :parking_spot_width, presence: true
 
-  validates :parking_spot_width, :numericality => { :greater_than => 0 }
+  validates :parking_spot_width, numericality: { greater_than: 0 }
 
   # Scopes
 
   def to_s
     lowest_height
   end
-
 end

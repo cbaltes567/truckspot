@@ -4,22 +4,21 @@ class Review < ApplicationRecord
   belongs_to :garage
 
   belongs_to :reviewer,
-             :class_name => "User"
+             class_name: "User"
 
   # Indirect associations
 
   # Validations
 
-  validates :rating, :presence => true
+  validates :rating, presence: true
 
-  validates :rating, :numericality => true
+  validates :rating, numericality: true
 
-  validates :review_body, :presence => true
+  validates :review_body, presence: true
 
   # Scopes
 
   def to_s
     reviewer.to_s
   end
-
 end

@@ -26,5 +26,4 @@ class UserResource < ApplicationResource
 
   many_to_many :favorite_garages,
                resource: GarageResource
-
 end

@@ -1,17 +1,18 @@
 class ReservationsController < ApplicationController
-  before_action :current_user_must_be_reservation_user, only: [:edit, :update, :destroy] 
+  before_action :current_user_must_be_reservation_user,
+                only: %i[edit update destroy]
 
-  before_action :set_reservation, only: [:show, :edit, :update, :destroy]
+  before_action :set_reservation, only: %i[show edit update destroy]
 
   # GET /reservations
   def index
     @q = Reservation.ransack(params[:q])
-    @reservations = @q.result(:distinct => true).includes(:user, :garage).page(params[:page]).per(10)
+    @reservations = @q.result(distinct: true).includes(:user,
+                                                       :garage).page(params[:page]).per(10)
   end
 
   # GET /reservations/1
-  def show
-  end
+  def show; end
 
   # GET /reservations/new
   def new
@@ -19,17 +20,16 @@ class ReservationsController < ApplicationController
   end
 
   # GET /reservations/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /reservations
   def create
     @reservation = Reservation.new(reservation_params)
 
     if @reservation.save
-      message = 'Reservation was successfully created.'
-      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-        redirect_back fallback_location: request.referrer, notice: message
+      message = "Reservation was successfully created."
+      if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referer, notice: message
       else
         redirect_to @reservation, notice: message
       end
@@ -41,7 +41,7 @@ class ReservationsController < ApplicationController
   # PATCH/PUT /reservations/1
   def update
     if @reservation.update(reservation_params)
-      redirect_to @reservation, notice: 'Reservation was successfully updated.'
+      redirect_to @reservation, notice: "Reservation was successfully updated."
     else
       render :edit
     end
@@ -51,30 +51,31 @@ class ReservationsController < ApplicationController
   def destroy
     @reservation.destroy
     message = "Reservation was successfully deleted."
-    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-      redirect_back fallback_location: request.referrer, notice: message
+    if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referer, notice: message
     else
       redirect_to reservations_url, notice: message
     end
   end
-
 
   private
 
   def current_user_must_be_reservation_user
     set_reservation
     unless current_user == @reservation.user
-      redirect_back fallback_location: root_path, alert: "You are not authorized for that."
+      redirect_back fallback_location: root_path,
+                    alert: "You are not authorized for that."
     end
   end
 
-    # Use callbacks to share common setup or constraints between actions.
-    def set_reservation
-      @reservation = Reservation.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_reservation
+    @reservation = Reservation.find(params[:id])
+  end
 
-    # Only allow a trusted parameter "white list" through.
-    def reservation_params
-      params.require(:reservation).permit(:user_id, :garage_id, :start_date, :end_time)
-    end
+  # Only allow a trusted parameter "white list" through.
+  def reservation_params
+    params.require(:reservation).permit(:user_id, :garage_id, :start_date,
+                                        :end_time)
+  end
 end

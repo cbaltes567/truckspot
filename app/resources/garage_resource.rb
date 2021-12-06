@@ -22,5 +22,4 @@ class GarageResource < ApplicationResource
                resource: UserResource
 
   many_to_many :users
-
 end
