@@ -7,12 +7,20 @@
     <dl class="mb-1">
       <dt>User</dt>
       <!-- Display user_id start -->
-      <dd><%= reservation.user_id %></dd>
+      <dd>
+        <% if @reservation.user.present? %>
+          <%= link_to reservation.user, reservation.user %>
+        <% end %>
+      </dd>
       <!-- Display user_id end -->
 
       <dt>Garage</dt>
       <!-- Display garage_id start -->
-      <dd><%= reservation.garage_id %></dd>
+      <dd>
+        <% if @reservation.garage.present? %>
+          <%= link_to reservation.garage, reservation.garage %>
+        <% end %>
+      </dd>
       <!-- Display garage_id end -->
 
       <dt>Start date</dt>

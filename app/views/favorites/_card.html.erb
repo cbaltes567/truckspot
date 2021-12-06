@@ -7,12 +7,20 @@
     <dl class="mb-1">
       <dt>User</dt>
       <!-- Display user_id start -->
-      <dd><%= favorite.user_id %></dd>
+      <dd>
+        <% if @favorite.user.present? %>
+          <%= link_to favorite.user, favorite.user %>
+        <% end %>
+      </dd>
       <!-- Display user_id end -->
 
       <dt>Garage</dt>
       <!-- Display garage_id start -->
-      <dd><%= favorite.garage_id %></dd>
+      <dd>
+        <% if @favorite.garage.present? %>
+          <%= link_to favorite.garage, favorite.garage %>
+        <% end %>
+      </dd>
       <!-- Display garage_id end -->
 
     </dl>

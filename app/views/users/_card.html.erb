@@ -12,7 +12,11 @@
 
       <dt>Vehicle</dt>
       <!-- Display vehicle_id start -->
-      <dd><%= user.vehicle_id %></dd>
+      <dd>
+        <% if @user.vehicle.present? %>
+          <%= link_to user.vehicle, user.vehicle %>
+        <% end %>
+      </dd>
       <!-- Display vehicle_id end -->
 
       <dt>Location</dt>
