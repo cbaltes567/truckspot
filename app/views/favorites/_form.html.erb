@@ -1,0 +1,57 @@
+<% was_validated = favorite.errors.any? %>
+
+<%= form_with(model: favorite, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for user_id start -->
+  <div class="form-group">
+    <% user_class = "form-control" %>
+    <% user_was_invalid = favorite.errors.include?(:user) %>
+
+    <% if was_validated %>
+      <% if user_was_invalid %>
+        <% user_class << " is-invalid" %>
+      <% else %>
+        <% user_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :user_id %>
+    <!-- Input for user_id start -->
+    <%= f.number_field :user_id, class: user_class, placeholder: "Enter user" %>
+    <!-- Input for user_id end -->
+    <% if user_was_invalid %>
+      <% favorite.errors.full_messages_for(:user).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for user_id end -->
+  <!-- Label and input for garage_id start -->
+  <div class="form-group">
+    <% garage_class = "form-control" %>
+    <% garage_was_invalid = favorite.errors.include?(:garage) %>
+
+    <% if was_validated %>
+      <% if garage_was_invalid %>
+        <% garage_class << " is-invalid" %>
+      <% else %>
+        <% garage_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :garage_id %>
+    <!-- Input for garage_id start -->
+    <%= f.number_field :garage_id, class: garage_class, placeholder: "Enter garage" %>
+    <!-- Input for garage_id end -->
+    <% if garage_was_invalid %>
+      <% favorite.errors.full_messages_for(:garage).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for garage_id end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>
