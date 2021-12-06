@@ -27,7 +27,9 @@
 
       <dt>Garage picture</dt>
       <!-- Display garage_picture start -->
-      <dd><%= garage.garage_picture %></dd>
+      <dd>
+        <%= cl_image_tag @garage.garage_picture, class: "img-fluid" %>
+      </dd>
       <!-- Display garage_picture end -->
 
     </dl>

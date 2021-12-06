@@ -1,4 +1,6 @@
 class Garage < ApplicationRecord
+  mount_uploader :garage_picture, GaragePictureUploader
+
   # Direct associations
 
   has_many   :favorites,

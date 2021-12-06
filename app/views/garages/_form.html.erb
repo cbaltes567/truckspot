@@ -120,7 +120,7 @@
 
     <%= f.label :garage_picture %>
     <!-- Input for garage_picture start -->
-    <%= f.text_field :garage_picture, class: garage_picture_class, placeholder: "Enter garage picture" %>
+    <%= f.file_field :garage_picture, class: "form-control" %>
     <!-- Input for garage_picture end -->
     <% if garage_picture_was_invalid %>
       <% garage.errors.full_messages_for(:garage_picture).each do |message| %>
