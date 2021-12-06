@@ -1,4 +1,6 @@
 class ReservationsController < ApplicationController
+  before_action :current_user_must_be_reservation_user, only: [:edit, :update, :destroy] 
+
   before_action :set_reservation, only: [:show, :edit, :update, :destroy]
 
   # GET /reservations
@@ -57,6 +59,14 @@ class ReservationsController < ApplicationController
 
 
   private
+
+  def current_user_must_be_reservation_user
+    set_reservation
+    unless current_user == @reservation.user
+      redirect_back fallback_location: root_path, alert: "You are not authorized for that."
+    end
+  end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_reservation
       @reservation = Reservation.find(params[:id])

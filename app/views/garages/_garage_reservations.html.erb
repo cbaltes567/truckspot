@@ -15,8 +15,10 @@
         <!-- Show link end -->
 
         <!-- Delete link start -->
-        <%= link_to reservation, method: :delete, data: { confirm: "Do you really want to delete this reservation" } do %>
-          <i class="fas fa-trash-alt"></i>
+        <% if current_user == reservation.user %>
+          <%= link_to reservation, method: :delete do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
         <% end %>
         <!-- Delete link end -->
 
