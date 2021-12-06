@@ -10,6 +10,8 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :favorites
+
   has_many   :reviews,
              foreign_key: :reviewer_id
 
