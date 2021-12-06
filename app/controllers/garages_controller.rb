@@ -8,6 +8,9 @@ class GaragesController < ApplicationController
 
   # GET /garages/1
   def show
+    @favorite = Favorite.new
+    @review = Review.new
+    @reservation = Reservation.new
   end
 
   # GET /garages/new

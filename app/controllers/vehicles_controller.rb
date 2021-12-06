@@ -8,6 +8,7 @@ class VehiclesController < ApplicationController
 
   # GET /vehicles/1
   def show
+    @user = User.new
   end
 
   # GET /vehicles/new

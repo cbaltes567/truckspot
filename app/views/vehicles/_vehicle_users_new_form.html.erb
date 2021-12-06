@@ -1,0 +1,52 @@
+<!-- Form user start -->
+<%= form_with(model: @user, local: true) do |f| %>
+<!-- Form user end -->
+
+  <!-- Label and input for email start -->
+  <div class="form-group">
+    <%= f.label :email %>
+
+    <!-- Input for email start -->
+    <%= f.text_field :email, class: "form-control" %>
+    <!-- Input for email end -->
+  </div>
+  <!-- Label and input for email end -->
+
+  <!-- Label and input for password start -->
+  <div class="form-group">
+    <%= f.label :password %>
+
+    <!-- Input for password start -->
+    <%= f.text_field :password, class: "form-control" %>
+    <!-- Input for password end -->
+  </div>
+  <!-- Label and input for password end -->
+
+  <!-- Label and input for license_plate_number start -->
+  <div class="form-group">
+    <%= f.label :license_plate_number %>
+
+    <!-- Input for license_plate_number start -->
+    <%= f.text_field :license_plate_number, class: "form-control" %>
+    <!-- Input for license_plate_number end -->
+  </div>
+  <!-- Label and input for license_plate_number end -->
+
+  <!-- Label and input for vehicle_id start -->
+  <!-- Input for vehicle_id start -->
+  <%= f.hidden_field :vehicle_id, value: @vehicle.id %>
+  <!-- Input for vehicle_id end -->
+  <!-- Label and input for vehicle_id end -->
+
+  <!-- Label and input for location start -->
+  <div class="form-group">
+    <%= f.label :location %>
+
+    <!-- Input for location start -->
+    <%= f.text_field :location, class: "form-control" %>
+    <!-- Input for location end -->
+  </div>
+  <!-- Label and input for location end -->
+
+  <%= f.submit "Create user", class: "btn btn-block btn-outline-secondary" %>
+<% end %>
