@@ -19,7 +19,9 @@ class User < ApplicationRecord
       end
     end
   end
-  # Direct associations
+  
+  include JwtToken
+# Direct associations
 
   belongs_to :vehicle
 
