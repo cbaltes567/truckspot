@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   # Direct associations
 
+  belongs_to :vehicle
+
   has_many   :favorites,
              :dependent => :destroy
 
