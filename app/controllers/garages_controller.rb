@@ -4,6 +4,11 @@ class GaragesController < ApplicationController
   # GET /garages
   def index
     @garages = Garage.all
+    @location_hash = Gmaps4rails.build_markers(@garages.where.not(:location_latitude => nil)) do |garage, marker|
+      marker.lat garage.location_latitude
+      marker.lng garage.location_longitude
+      marker.infowindow "<h5><a href='/garages/#{garage.id}'>#{garage.lowest_height}</a></h5><small>#{garage.location_formatted_address}</small>"
+    end
   end
 
   # GET /garages/1
