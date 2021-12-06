@@ -10,6 +10,9 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :reviews,
+             foreign_key: :reviewer_id
+
   has_many   :reservations
 
   # Indirect associations
