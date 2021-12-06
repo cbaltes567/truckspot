@@ -1,0 +1,56 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Vehicle #<%= vehicle.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Make</dt>
+      <!-- Display make start -->
+      <dd><%= vehicle.make %></dd>
+      <!-- Display make end -->
+
+      <dt>Model</dt>
+      <!-- Display model start -->
+      <dd><%= vehicle.model %></dd>
+      <!-- Display model end -->
+
+      <dt>Width</dt>
+      <!-- Display width start -->
+      <dd><%= vehicle.width %></dd>
+      <!-- Display width end -->
+
+      <dt>Height</dt>
+      <!-- Display height start -->
+      <dd><%= vehicle.height %></dd>
+      <!-- Display height end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back vehicle, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link vehicle start -->
+      <div class="col">
+        <%= link_to edit_vehicle_url(vehicle), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link vehicle end -->
+
+      <!-- Delete link vehicle start -->
+      <div class="col">
+        <%= link_to vehicle, method: :delete, data: { confirm: "Do you really want to delete this vehicle?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link vehicle end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(vehicle.updated_at) %> ago
+  </div>
+</div>
