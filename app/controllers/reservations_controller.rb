@@ -4,25 +4,20 @@ class ReservationsController < ApplicationController
 
   before_action :set_reservation, only: %i[show edit update destroy]
 
-  # GET /reservations
   def index
     @q = Reservation.ransack(params[:q])
     @reservations = @q.result(distinct: true).includes(:user,
                                                        :garage).page(params[:page]).per(10)
   end
 
-  # GET /reservations/1
   def show; end
 
-  # GET /reservations/new
   def new
     @reservation = Reservation.new
   end
 
-  # GET /reservations/1/edit
   def edit; end
 
-  # POST /reservations
   def create
     @reservation = Reservation.new(reservation_params)
 
@@ -38,7 +33,6 @@ class ReservationsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /reservations/1
   def update
     if @reservation.update(reservation_params)
       redirect_to @reservation, notice: "Reservation was successfully updated."
@@ -47,7 +41,6 @@ class ReservationsController < ApplicationController
     end
   end
 
-  # DELETE /reservations/1
   def destroy
     @reservation.destroy
     message = "Reservation was successfully deleted."
@@ -68,12 +61,10 @@ class ReservationsController < ApplicationController
     end
   end
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_reservation
     @reservation = Reservation.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def reservation_params
     params.require(:reservation).permit(:user_id, :garage_id, :start_date,
                                         :end_time)
