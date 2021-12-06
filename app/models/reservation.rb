@@ -9,7 +9,7 @@ class Reservation < ApplicationRecord
 
   # Validations
 
-  validates :start_date, presence: true
+  validates :start_time, presence: true
 
   # Scopes
 

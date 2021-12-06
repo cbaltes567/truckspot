@@ -4,7 +4,7 @@ class VehicleOwnershipsController < ApplicationController
   def index
     @q = VehicleOwnership.ransack(params[:q])
     @vehicle_ownerships = @q.result(distinct: true).includes(:owner,
-                                                             :vehicle).page(params[:page]).per(10)
+                                                             :vehicle_type).page(params[:page]).per(10)
   end
 
   def show; end

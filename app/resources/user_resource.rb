@@ -7,7 +7,8 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
-  has_many   :vehicle_ownerships,
+  has_many   :vehicles,
+             resource: VehicleOwnershipResource,
              foreign_key: :owner_id
 
   has_many   :favorites

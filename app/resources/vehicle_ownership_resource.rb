@@ -8,7 +8,8 @@ class VehicleOwnershipResource < ApplicationResource
 
   # Direct associations
 
-  belongs_to :vehicle
+  belongs_to :vehicle_type,
+             foreign_key: :vehicle_id
 
   belongs_to :owner,
              resource: UserResource

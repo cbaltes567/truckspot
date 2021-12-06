@@ -7,6 +7,7 @@ class GarageResource < ApplicationResource
   attribute :cost_per_hour, :float
   attribute :parking_spot_width, :float
   attribute :garage_picture, :string
+  attribute :garage_name, :string
 
   # Direct associations
 
