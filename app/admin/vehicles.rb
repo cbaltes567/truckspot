@@ -1,5 +1,7 @@
 ActiveAdmin.register Vehicle do
 
+ permit_params :make, :model, :width, :height
+
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
