@@ -1,0 +1,61 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Garage #<%= garage.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Lowest height</dt>
+      <!-- Display lowest_height start -->
+      <dd><%= garage.lowest_height %></dd>
+      <!-- Display lowest_height end -->
+
+      <dt>Location</dt>
+      <!-- Display location start -->
+      <dd><%= garage.location %></dd>
+      <!-- Display location end -->
+
+      <dt>Cost per hour</dt>
+      <!-- Display cost_per_hour start -->
+      <dd><%= garage.cost_per_hour %></dd>
+      <!-- Display cost_per_hour end -->
+
+      <dt>Parking spot width</dt>
+      <!-- Display parking_spot_width start -->
+      <dd><%= garage.parking_spot_width %></dd>
+      <!-- Display parking_spot_width end -->
+
+      <dt>Garage picture</dt>
+      <!-- Display garage_picture start -->
+      <dd><%= garage.garage_picture %></dd>
+      <!-- Display garage_picture end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back garage, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link garage start -->
+      <div class="col">
+        <%= link_to edit_garage_url(garage), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link garage end -->
+
+      <!-- Delete link garage start -->
+      <div class="col">
+        <%= link_to garage, method: :delete, data: { confirm: "Do you really want to delete this garage?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link garage end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(garage.updated_at) %> ago
+  </div>
+</div>
