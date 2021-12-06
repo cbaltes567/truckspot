@@ -1,0 +1,71 @@
+<% was_validated = vehicle_ownership.errors.any? %>
+
+<%= form_with(model: vehicle_ownership, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <div class="form-group">
+    <% vehicle_class = "form-control" %>
+    <% vehicle_was_invalid = vehicle_ownership.errors.include?(:vehicle) %>
+
+    <% if was_validated %>
+      <% if vehicle_was_invalid %>
+        <% vehicle_class << " is-invalid" %>
+      <% else %>
+        <% vehicle_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :vehicle_id %>
+    <%= f.collection_select :vehicle_id, Vehicle.all, :id, :to_s, {}, class: "form-control" %>
+    <% if vehicle_was_invalid %>
+      <% vehicle_ownership.errors.full_messages_for(:vehicle).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="form-group">
+    <% owner_class = "form-control" %>
+    <% owner_was_invalid = vehicle_ownership.errors.include?(:owner) %>
+
+    <% if was_validated %>
+      <% if owner_was_invalid %>
+        <% owner_class << " is-invalid" %>
+      <% else %>
+        <% owner_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :owner_id %>
+    <%= f.collection_select :owner_id, User.all, :id, :to_s, {}, class: "form-control" %>
+    <% if owner_was_invalid %>
+      <% vehicle_ownership.errors.full_messages_for(:owner).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="form-group">
+    <% license_plate_number_class = "form-control" %>
+    <% license_plate_number_was_invalid = vehicle_ownership.errors.include?(:license_plate_number) %>
+
+    <% if was_validated %>
+      <% if license_plate_number_was_invalid %>
+        <% license_plate_number_class << " is-invalid" %>
+      <% else %>
+        <% license_plate_number_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :license_plate_number %>
+    <%= f.text_field :license_plate_number, class: license_plate_number_class, placeholder: "Enter license plate number" %>
+    <% if license_plate_number_was_invalid %>
+      <% vehicle_ownership.errors.full_messages_for(:license_plate_number).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>

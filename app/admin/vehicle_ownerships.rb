@@ -1,5 +1,5 @@
-ActiveAdmin.register User do
-  permit_params :email, :password
+ActiveAdmin.register VehicleOwnership do
+  permit_params :vehicle_id, :owner_id, :license_plate_number
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

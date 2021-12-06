@@ -1,0 +1,49 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Vehicle Ownership #<%= vehicle_ownership.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Vehicle</dt>
+      <dd>
+        <% if @vehicle_ownership.vehicle.present? %>
+          <%= link_to vehicle_ownership.vehicle, vehicle_ownership.vehicle %>
+        <% end %>
+      </dd>
+
+      <dt>Owner</dt>
+      <dd>
+        <% if @vehicle_ownership.owner.present? %>
+          <%= link_to vehicle_ownership.owner, vehicle_ownership.owner %>
+        <% end %>
+      </dd>
+
+      <dt>License plate number</dt>
+      <dd><%= vehicle_ownership.license_plate_number %></dd>
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back vehicle_ownership, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <div class="col">
+        <%= link_to edit_vehicle_ownership_url(vehicle_ownership), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+
+      <div class="col">
+        <%= link_to vehicle_ownership, method: :delete, data: { confirm: "Do you really want to delete this vehicle_ownership?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(vehicle_ownership.updated_at) %> ago
+  </div>
+</div>

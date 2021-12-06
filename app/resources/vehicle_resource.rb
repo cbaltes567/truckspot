@@ -9,7 +9,7 @@ class VehicleResource < ApplicationResource
 
   # Direct associations
 
-  has_many :users
+  has_many :vehicle_ownerships
 
   # Indirect associations
 end

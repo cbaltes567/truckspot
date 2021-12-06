@@ -4,13 +4,11 @@ class UserResource < ApplicationResource
   attribute :updated_at, :datetime, writable: false
   attribute :email, :string
   attribute :password, :string
-  attribute :license_plate_number, :string
-  attribute :vehicle_id, :integer
-  attribute :location, :string
 
   # Direct associations
 
-  belongs_to :vehicle
+  has_many   :vehicle_ownerships,
+             foreign_key: :owner_id
 
   has_many   :favorites
 

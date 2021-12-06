@@ -1,0 +1,18 @@
+<%= form_with(model: @vehicle_ownership, local: true) do |f| %>
+
+  <div class="form-group">
+    <%= f.label :vehicle_id %>
+
+    <%= f.collection_select :vehicle_id, Vehicle.all, :id, :to_s, {}, class: "form-control" %>
+  </div>
+
+  <%= f.hidden_field :owner_id, value: @user.id %>
+
+  <div class="form-group">
+    <%= f.label :license_plate_number %>
+
+    <%= f.text_field :license_plate_number, class: "form-control" %>
+  </div>
+
+  <%= f.submit "Create vehicle ownership", class: "btn btn-block btn-outline-secondary" %>
+<% end %>

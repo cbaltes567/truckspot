@@ -1,0 +1,29 @@
+<div class="card">
+  <div class="card-header d-flex align-items-center justify-content-between">
+    Vehicle Ownerships
+
+    <a data-toggle="collapse" href="#vehicle_vehicle_ownerships_new_form">
+      Add vehicle ownership
+    </a>
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <% @vehicle.vehicle_ownerships.each do |vehicle_ownership| %>
+      <li class="list-group-item d-flex align-items-center justify-content-between">
+        <%= link_to vehicle_ownership, vehicle_ownership %>
+
+        <%= link_to vehicle_ownership, method: :delete, data: { confirm: "Do you really want to delete this vehicle_ownership" } do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+
+      </li>
+    <% end %>
+
+    <div class="card-footer">
+      <div class="collapse" id="vehicle_vehicle_ownerships_new_form">
+        <%= render partial: "vehicles/vehicle_vehicle_ownerships_new_form" %>
+      </div>
+    </div>
+
+  </ul>
+</div>
