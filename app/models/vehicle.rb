@@ -5,6 +5,8 @@ class Vehicle < ApplicationRecord
 
   # Validations
 
+  validates :height, :presence => true
+
   validates :height, :numericality => { :greater_than => 0 }
 
   validates :width, :presence => true
