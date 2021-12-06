@@ -10,6 +10,8 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :vehicle
+
   has_many   :favorites
 
   has_many   :reviews,
