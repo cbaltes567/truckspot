@@ -1,7 +1,6 @@
 <% was_validated = user.errors.any? %>
 
 <%= form_with(model: user, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for license_plate_number start -->
   <div class="form-group">
     <% license_plate_number_class = "form-control" %>
     <% license_plate_number_was_invalid = user.errors.include?(:license_plate_number) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :license_plate_number %>
-    <!-- Input for license_plate_number start -->
     <%= f.text_field :license_plate_number, class: license_plate_number_class, placeholder: "Enter license plate number" %>
-    <!-- Input for license_plate_number end -->
     <% if license_plate_number_was_invalid %>
       <% user.errors.full_messages_for(:license_plate_number).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for license_plate_number end -->
-  <!-- Label and input for vehicle_id start -->
   <div class="form-group">
     <% vehicle_class = "form-control" %>
     <% vehicle_was_invalid = user.errors.include?(:vehicle) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :vehicle_id %>
-    <!-- Input for vehicle_id start -->
     <%= f.collection_select :vehicle_id, Vehicle.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for vehicle_id end -->
     <% if vehicle_was_invalid %>
       <% user.errors.full_messages_for(:vehicle).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for vehicle_id end -->
-  <!-- Label and input for location start -->
   <div class="form-group">
     <% location_class = "form-control" %>
     <% location_was_invalid = user.errors.include?(:location) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :location %>
-    <!-- Input for location start -->
     <%= f.text_field :location, class: location_class, placeholder: "Enter location" %>
-    <!-- Input for location end -->
     <% if location_was_invalid %>
       <% user.errors.full_messages_for(:location).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,6 +67,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for location end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

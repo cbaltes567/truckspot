@@ -7,9 +7,7 @@
 
       <div class="card-body">
         <% was_validated = resource.errors.any? %>
-        <!-- Form html options start -->
         <% form_html_options = { method: :put, novalidate: true, class: "mb-3" } %>
-        <!-- Form html options end -->
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: form_html_options) do |f| %>
 
           <% if flash[:notice].present? %>
@@ -147,7 +145,6 @@
           </div>
 
 
-          <!-- Devise Input for license_plate_number start -->
           <div class="form-group">
             <% license_plate_number_was_invalid = resource.errors.include?(:license_plate_number) %>
 
@@ -173,9 +170,7 @@
               <% end %>
             <% end %>
           </div>
-          <!-- Devise Input for license_plate_number end -->
 
-          <!-- Devise Input for vehicle_id start -->
           <div class="form-group">
             <% vehicle_id_was_invalid = resource.errors.include?(:vehicle_id) %>
 
@@ -201,9 +196,7 @@
               <% end %>
             <% end %>
           </div>
-          <!-- Devise Input for vehicle_id end -->
 
-          <!-- Devise Input for location start -->
           <div class="form-group">
             <% location_was_invalid = resource.errors.include?(:location) %>
 
@@ -229,7 +222,6 @@
               <% end %>
             <% end %>
           </div>
-          <!-- Devise Input for location end -->
           <%= f.submit "Update", class: "btn btn-block btn-outline-primary" %>
         <% end %>
 

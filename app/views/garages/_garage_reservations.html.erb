@@ -10,26 +10,20 @@
   <ul class="list-group list-group-flush">
     <% @garage.reservations.each do |reservation| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <%= link_to reservation, reservation %>
-        <!-- Show link end -->
 
-        <!-- Delete link start -->
         <% if current_user == reservation.user %>
           <%= link_to reservation, method: :delete do %>
             <i class="fas fa-trash-alt"></i>
           <% end %>
         <% end %>
-        <!-- Delete link end -->
 
       </li>
     <% end %>
 
     <div class="card-footer">
       <div class="collapse" id="garage_reservations_new_form">
-        <!-- New associationcollection form start -->
         <%= render partial: "garages/garage_reservations_new_form" %>
-        <!-- New associationcollection form end -->
       </div>
     </div>
 

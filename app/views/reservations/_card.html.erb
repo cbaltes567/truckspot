@@ -6,32 +6,24 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>User</dt>
-      <!-- Display user_id start -->
       <dd>
         <% if @reservation.user.present? %>
           <%= link_to reservation.user, reservation.user %>
         <% end %>
       </dd>
-      <!-- Display user_id end -->
 
       <dt>Garage</dt>
-      <!-- Display garage_id start -->
       <dd>
         <% if @reservation.garage.present? %>
           <%= link_to reservation.garage, reservation.garage %>
         <% end %>
       </dd>
-      <!-- Display garage_id end -->
 
       <dt>Start date</dt>
-      <!-- Display start_date start -->
       <dd><%= reservation.start_date %></dd>
-      <!-- Display start_date end -->
 
       <dt>End time</dt>
-      <!-- Display end_time start -->
       <dd><%= reservation.end_time %></dd>
-      <!-- Display end_time end -->
 
     </dl>
 
@@ -40,7 +32,6 @@
         <%= link_to_show_or_back reservation, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link reservation start -->
       <div class="col">
         <% if current_user == @reservation.user %>
           <%= link_to edit_reservation_url(reservation), class: "btn btn-block btn-sm btn-outline-secondary" do %>
@@ -48,9 +39,7 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Edit link reservation end -->
 
-      <!-- Delete link reservation start -->
       <div class="col">
         <% if current_user == @reservation.user %>
           <%= link_to reservation, method: :delete, data: { confirm: "Do you really want to delete this reservation?" }, class: "btn btn-block btn-outline-secondary" do %>
@@ -58,7 +47,6 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Delete link reservation end -->
     </div>
   </div>
 

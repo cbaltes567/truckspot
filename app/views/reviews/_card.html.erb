@@ -6,32 +6,24 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Reviewer</dt>
-      <!-- Display reviewer_id start -->
       <dd>
         <% if @review.reviewer.present? %>
           <%= link_to review.reviewer, review.reviewer %>
         <% end %>
       </dd>
-      <!-- Display reviewer_id end -->
 
       <dt>Rating</dt>
-      <!-- Display rating start -->
       <dd><%= review.rating %></dd>
-      <!-- Display rating end -->
 
       <dt>Review body</dt>
-      <!-- Display review_body start -->
       <dd><%= review.review_body %></dd>
-      <!-- Display review_body end -->
 
       <dt>Garage</dt>
-      <!-- Display garage_id start -->
       <dd>
         <% if @review.garage.present? %>
           <%= link_to review.garage, review.garage %>
         <% end %>
       </dd>
-      <!-- Display garage_id end -->
 
     </dl>
 
@@ -40,21 +32,17 @@
         <%= link_to_show_or_back review, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link review start -->
       <div class="col">
         <%= link_to edit_review_url(review), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link review end -->
 
-      <!-- Delete link review start -->
       <div class="col">
         <%= link_to review, method: :delete, data: { confirm: "Do you really want to delete this review?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link review end -->
     </div>
   </div>
 

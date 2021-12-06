@@ -1,12 +1,7 @@
 <% was_validated = reservation.errors.any? %>
 
 <%= form_with(model: reservation, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for user_id start -->
-  <!-- Input for "user_id" start -->
   <%= f.hidden_field :user_id, value: current_user.id %>
-  <!-- Input for "user_id" end -->
-  <!-- Label and input for user_id end -->
-  <!-- Label and input for garage_id start -->
   <div class="form-group">
     <% garage_class = "form-control" %>
     <% garage_was_invalid = reservation.errors.include?(:garage) %>
@@ -20,9 +15,7 @@
     <% end %>
 
     <%= f.label :garage_id %>
-    <!-- Input for garage_id start -->
     <%= f.collection_select :garage_id, Garage.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for garage_id end -->
     <% if garage_was_invalid %>
       <% reservation.errors.full_messages_for(:garage).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -31,8 +24,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for garage_id end -->
-  <!-- Label and input for start_date start -->
   <div class="form-group">
     <% start_date_class = "form-control" %>
     <% start_date_was_invalid = reservation.errors.include?(:start_date) %>
@@ -46,9 +37,7 @@
     <% end %>
 
     <%= f.label :start_date %>
-    <!-- Input for start_date start -->
     <%= f.datetime_select :start_date, class: start_date_class, placeholder: "Enter start date" %>
-    <!-- Input for start_date end -->
     <% if start_date_was_invalid %>
       <% reservation.errors.full_messages_for(:start_date).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -57,8 +46,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for start_date end -->
-  <!-- Label and input for end_time start -->
   <div class="form-group">
     <% end_time_class = "form-control" %>
     <% end_time_was_invalid = reservation.errors.include?(:end_time) %>
@@ -72,9 +59,7 @@
     <% end %>
 
     <%= f.label :end_time %>
-    <!-- Input for end_time start -->
     <%= f.time_select :end_time, class: end_time_class, placeholder: "Enter end time" %>
-    <!-- Input for end_time end -->
     <% if end_time_was_invalid %>
       <% reservation.errors.full_messages_for(:end_time).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -83,6 +68,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for end_time end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

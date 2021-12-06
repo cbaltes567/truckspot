@@ -1,7 +1,6 @@
 <% was_validated = favorite.errors.any? %>
 
 <%= form_with(model: favorite, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for user_id start -->
   <div class="form-group">
     <% user_class = "form-control" %>
     <% user_was_invalid = favorite.errors.include?(:user) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :user_id %>
-    <!-- Input for user_id start -->
     <%= f.collection_select :user_id, User.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for user_id end -->
     <% if user_was_invalid %>
       <% favorite.errors.full_messages_for(:user).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for user_id end -->
-  <!-- Label and input for garage_id start -->
   <div class="form-group">
     <% garage_class = "form-control" %>
     <% garage_was_invalid = favorite.errors.include?(:garage) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :garage_id %>
-    <!-- Input for garage_id start -->
     <%= f.collection_select :garage_id, Garage.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for garage_id end -->
     <% if garage_was_invalid %>
       <% favorite.errors.full_messages_for(:garage).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,6 +45,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for garage_id end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

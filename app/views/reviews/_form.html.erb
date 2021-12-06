@@ -1,7 +1,6 @@
 <% was_validated = review.errors.any? %>
 
 <%= form_with(model: review, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for reviewer_id start -->
   <div class="form-group">
     <% reviewer_class = "form-control" %>
     <% reviewer_was_invalid = review.errors.include?(:reviewer) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :reviewer_id %>
-    <!-- Input for reviewer_id start -->
     <%= f.collection_select :reviewer_id, User.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for reviewer_id end -->
     <% if reviewer_was_invalid %>
       <% review.errors.full_messages_for(:reviewer).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for reviewer_id end -->
-  <!-- Label and input for rating start -->
   <div class="form-group">
     <% rating_class = "form-control" %>
     <% rating_was_invalid = review.errors.include?(:rating) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :rating %>
-    <!-- Input for rating start -->
     <%= f.number_field :rating, class: rating_class, placeholder: "Enter rating" %>
-    <!-- Input for rating end -->
     <% if rating_was_invalid %>
       <% review.errors.full_messages_for(:rating).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for rating end -->
-  <!-- Label and input for review_body start -->
   <div class="form-group">
     <% review_body_class = "form-control" %>
     <% review_body_was_invalid = review.errors.include?(:review_body) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :review_body %>
-    <!-- Input for review_body start -->
     <%= f.text_field :review_body, class: review_body_class, placeholder: "Enter review body" %>
-    <!-- Input for review_body end -->
     <% if review_body_was_invalid %>
       <% review.errors.full_messages_for(:review_body).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,8 +67,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for review_body end -->
-  <!-- Label and input for garage_id start -->
   <div class="form-group">
     <% garage_class = "form-control" %>
     <% garage_was_invalid = review.errors.include?(:garage) %>
@@ -93,9 +80,7 @@
     <% end %>
 
     <%= f.label :garage_id %>
-    <!-- Input for garage_id start -->
     <%= f.collection_select :garage_id, Garage.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for garage_id end -->
     <% if garage_was_invalid %>
       <% review.errors.full_messages_for(:garage).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -104,6 +89,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for garage_id end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>
