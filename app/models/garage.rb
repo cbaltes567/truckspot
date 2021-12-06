@@ -5,6 +5,8 @@ class Garage < ApplicationRecord
 
   # Validations
 
+  validates :location, :presence => true
+
   validates :lowest_height, :presence => true
 
   validates :lowest_height, :numericality => { :greater_than => 0 }
