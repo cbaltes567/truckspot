@@ -3,7 +3,8 @@ class VehiclesController < ApplicationController
 
   # GET /vehicles
   def index
-    @vehicles = Vehicle.page(params[:page]).per(10)
+    @q = Vehicle.ransack(params[:q])
+    @vehicles = @q.result(:distinct => true).includes(:users).page(params[:page]).per(10)
   end
 
   # GET /vehicles/1

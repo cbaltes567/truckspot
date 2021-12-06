@@ -3,7 +3,8 @@ class GaragesController < ApplicationController
 
   # GET /garages
   def index
-    @garages = Garage.page(params[:page]).per(10)
+    @q = Garage.ransack(params[:q])
+    @garages = @q.result(:distinct => true).includes(:reservations, :reviews, :favorites, :users, :reviewers).page(params[:page]).per(10)
     @location_hash = Gmaps4rails.build_markers(@garages.where.not(:location_latitude => nil)) do |garage, marker|
       marker.lat garage.location_latitude
       marker.lng garage.location_longitude

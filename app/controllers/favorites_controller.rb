@@ -3,7 +3,8 @@ class FavoritesController < ApplicationController
 
   # GET /favorites
   def index
-    @favorites = Favorite.page(params[:page]).per(10)
+    @q = Favorite.ransack(params[:q])
+    @favorites = @q.result(:distinct => true).includes(:user, :garage).page(params[:page]).per(10)
   end
 
   # GET /favorites/1
