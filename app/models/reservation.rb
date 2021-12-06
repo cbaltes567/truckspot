@@ -5,6 +5,8 @@ class Reservation < ApplicationRecord
 
   # Validations
 
+  validates :start_date, :presence => true
+
   # Scopes
 
   def to_s
