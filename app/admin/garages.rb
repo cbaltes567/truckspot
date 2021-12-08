@@ -1,6 +1,6 @@
 ActiveAdmin.register Garage do
-  permit_params :lowest_height, :location, :cost_per_hour, :parking_spot_width,
-                :garage_picture, :garage_name
+  permit_params :garage_name, :maximum_height, :maximum_width, :cost_per_hour,
+                :garage_picture, :location
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
