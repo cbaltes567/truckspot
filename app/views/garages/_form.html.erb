@@ -2,21 +2,21 @@
 
 <%= form_with(model: garage, local: true, novalidate: true, class: "mb-3") do |f| %>
   <div class="form-group">
-    <% lowest_height_class = "form-control" %>
-    <% lowest_height_was_invalid = garage.errors.include?(:lowest_height) %>
+    <% garage_name_class = "form-control" %>
+    <% garage_name_was_invalid = garage.errors.include?(:garage_name) %>
 
     <% if was_validated %>
-      <% if lowest_height_was_invalid %>
-        <% lowest_height_class << " is-invalid" %>
+      <% if garage_name_was_invalid %>
+        <% garage_name_class << " is-invalid" %>
       <% else %>
-        <% lowest_height_class << " is-valid" %>
+        <% garage_name_class << " is-valid" %>
       <% end %>
     <% end %>
 
-    <%= f.label :lowest_height %>
-    <%= f.text_field :lowest_height, class: lowest_height_class, placeholder: "Enter lowest height" %>
-    <% if lowest_height_was_invalid %>
-      <% garage.errors.full_messages_for(:lowest_height).each do |message| %>
+    <%= f.label :garage_name %>
+    <%= f.text_field :garage_name, class: garage_name_class, placeholder: "Enter garage name" %>
+    <% if garage_name_was_invalid %>
+      <% garage.errors.full_messages_for(:garage_name).each do |message| %>
         <div class="invalid-feedback d-flex">
           <%= message %>
         </div>
@@ -24,21 +24,43 @@
     <% end %>
   </div>
   <div class="form-group">
-    <% location_class = "form-control" %>
-    <% location_was_invalid = garage.errors.include?(:location) %>
+    <% maximum_height_class = "form-control" %>
+    <% maximum_height_was_invalid = garage.errors.include?(:maximum_height) %>
 
     <% if was_validated %>
-      <% if location_was_invalid %>
-        <% location_class << " is-invalid" %>
+      <% if maximum_height_was_invalid %>
+        <% maximum_height_class << " is-invalid" %>
       <% else %>
-        <% location_class << " is-valid" %>
+        <% maximum_height_class << " is-valid" %>
       <% end %>
     <% end %>
 
-    <%= f.label :location %>
-    <%= f.text_field :location, class: location_class, placeholder: "Enter location" %>
-    <% if location_was_invalid %>
-      <% garage.errors.full_messages_for(:location).each do |message| %>
+    <%= f.label :maximum_height %>
+    <%= f.text_field :maximum_height, class: maximum_height_class, placeholder: "Enter maximum height" %>
+    <% if maximum_height_was_invalid %>
+      <% garage.errors.full_messages_for(:maximum_height).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="form-group">
+    <% maximum_width_class = "form-control" %>
+    <% maximum_width_was_invalid = garage.errors.include?(:maximum_width) %>
+
+    <% if was_validated %>
+      <% if maximum_width_was_invalid %>
+        <% maximum_width_class << " is-invalid" %>
+      <% else %>
+        <% maximum_width_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :maximum_width %>
+    <%= f.text_field :maximum_width, class: maximum_width_class, placeholder: "Enter maximum width" %>
+    <% if maximum_width_was_invalid %>
+      <% garage.errors.full_messages_for(:maximum_width).each do |message| %>
         <div class="invalid-feedback d-flex">
           <%= message %>
         </div>
@@ -68,28 +90,6 @@
     <% end %>
   </div>
   <div class="form-group">
-    <% parking_spot_width_class = "form-control" %>
-    <% parking_spot_width_was_invalid = garage.errors.include?(:parking_spot_width) %>
-
-    <% if was_validated %>
-      <% if parking_spot_width_was_invalid %>
-        <% parking_spot_width_class << " is-invalid" %>
-      <% else %>
-        <% parking_spot_width_class << " is-valid" %>
-      <% end %>
-    <% end %>
-
-    <%= f.label :parking_spot_width %>
-    <%= f.text_field :parking_spot_width, class: parking_spot_width_class, placeholder: "Enter parking spot width" %>
-    <% if parking_spot_width_was_invalid %>
-      <% garage.errors.full_messages_for(:parking_spot_width).each do |message| %>
-        <div class="invalid-feedback d-flex">
-          <%= message %>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
-  <div class="form-group">
     <% garage_picture_class = "form-control" %>
     <% garage_picture_was_invalid = garage.errors.include?(:garage_picture) %>
 
@@ -112,21 +112,21 @@
     <% end %>
   </div>
   <div class="form-group">
-    <% garage_name_class = "form-control" %>
-    <% garage_name_was_invalid = garage.errors.include?(:garage_name) %>
+    <% location_class = "form-control" %>
+    <% location_was_invalid = garage.errors.include?(:location) %>
 
     <% if was_validated %>
-      <% if garage_name_was_invalid %>
-        <% garage_name_class << " is-invalid" %>
+      <% if location_was_invalid %>
+        <% location_class << " is-invalid" %>
       <% else %>
-        <% garage_name_class << " is-valid" %>
+        <% location_class << " is-valid" %>
       <% end %>
     <% end %>
 
-    <%= f.label :garage_name %>
-    <%= f.text_field :garage_name, class: garage_name_class, placeholder: "Enter garage name" %>
-    <% if garage_name_was_invalid %>
-      <% garage.errors.full_messages_for(:garage_name).each do |message| %>
+    <%= f.label :location %>
+    <%= f.text_field :location, class: location_class, placeholder: "Enter location" %>
+    <% if location_was_invalid %>
+      <% garage.errors.full_messages_for(:location).each do |message| %>
         <div class="invalid-feedback d-flex">
           <%= message %>
         </div>

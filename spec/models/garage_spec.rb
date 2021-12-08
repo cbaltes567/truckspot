@@ -24,14 +24,12 @@ RSpec.describe Garage, type: :model do
 
     it { should validate_presence_of(:location) }
 
-    it { should validate_presence_of(:lowest_height) }
+    it { should validate_presence_of(:maximum_height) }
 
-    it { should validate_numericality_of(:lowest_height).is_greater_than(0) }
+    it { should validate_numericality_of(:maximum_height).is_greater_than(0) }
 
-    it { should validate_presence_of(:parking_spot_width) }
+    it { should validate_presence_of(:maximum_width) }
 
-    it {
-      should validate_numericality_of(:parking_spot_width).is_greater_than(0)
-    }
+    it { should validate_numericality_of(:maximum_width).is_greater_than(0) }
   end
 end
