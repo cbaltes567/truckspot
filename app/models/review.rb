@@ -12,7 +12,8 @@ class Review < ApplicationRecord
 
   validates :rating, presence: true
 
-  validates :rating, numericality: true
+  validates :rating,
+            numericality: { greater_than: 0, less_than_or_equal_to: 5 }
 
   validates :review_body, presence: true
 

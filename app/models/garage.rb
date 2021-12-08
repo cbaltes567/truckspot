@@ -52,17 +52,17 @@ class Garage < ApplicationRecord
 
   validates :location, presence: true
 
-  validates :lowest_height, presence: true
+  validates :maximum_height, presence: true
 
-  validates :lowest_height, numericality: { greater_than: 0 }
+  validates :maximum_height, numericality: { greater_than: 0 }
 
-  validates :parking_spot_width, presence: true
+  validates :maximum_width, presence: true
 
-  validates :parking_spot_width, numericality: { greater_than: 0 }
+  validates :maximum_width, numericality: { greater_than: 0 }
 
   # Scopes
 
   def to_s
-    lowest_height
+    garage_name
   end
 end

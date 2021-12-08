@@ -5,8 +5,22 @@
 
   <div class="card-body">
     <dl class="mb-1">
-      <dt>Lowest height</dt>
-      <dd><%= garage.lowest_height %></dd>
+      <dt>Garage name</dt>
+      <dd><%= garage.garage_name %></dd>
+
+      <dt>Maximum height</dt>
+      <dd><%= garage.maximum_height %></dd>
+
+      <dt>Maximum width</dt>
+      <dd><%= garage.maximum_width %></dd>
+
+      <dt>Cost per hour</dt>
+      <dd><%= garage.cost_per_hour %></dd>
+
+      <dt>Garage picture</dt>
+      <dd>
+        <%= cl_image_tag @garage.garage_picture, class: "img-fluid" %>
+      </dd>
 
       <dt>Location</dt>
       <dd>
@@ -14,20 +28,6 @@
           <%= render partial: "garages/one_photo_map" %>
         </div>
       </dd>
-
-      <dt>Cost per hour</dt>
-      <dd><%= garage.cost_per_hour %></dd>
-
-      <dt>Parking spot width</dt>
-      <dd><%= garage.parking_spot_width %></dd>
-
-      <dt>Garage picture</dt>
-      <dd>
-        <%= cl_image_tag @garage.garage_picture, class: "img-fluid" %>
-      </dd>
-
-      <dt>Garage name</dt>
-      <dd><%= garage.garage_name %></dd>
 
     </dl>
 
